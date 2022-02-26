@@ -1,7 +1,9 @@
 """
 Taylor series
 """
+import math
 from typing import Union
+from itertools import count
 
 
 def ex(x: Union[int, float]) -> float:
@@ -11,8 +13,14 @@ def ex(x: Union[int, float]) -> float:
     :param x: x value
     :return: e^x value
     """
-    print(x)
-    return 0
+    EPSILON = 0.0001
+    exp = 1
+    for n in count(1, 1):
+        cur_exp = (x ** n) / math.factorial(n)
+        exp += cur_exp
+        if EPSILON > cur_exp:
+            break
+    return exp
 
 
 def sinx(x: Union[int, float]) -> float:

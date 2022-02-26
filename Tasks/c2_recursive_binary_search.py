@@ -11,3 +11,4 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     """
     print(elem, arr)
     return None
+
